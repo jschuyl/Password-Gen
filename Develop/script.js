@@ -9,13 +9,26 @@ var specials = "!@#$%^&*()_+,.<>/? "
 var passwordLength = 128; // only works with an int here, for now
 var passArray = [char, charCAPS, numbers, specials];
 // check for user wants
-var useChar = false;
-var useCAPS = false;
-var useNum = false;
-var useSpec = false;
+var useChar = true;
+var useCAPS = true;
+var useNum = true;
+var useSpec = true;
 
 function generatePassword() {
   let newPass = "";
+  // these check the booleans to see what can be used for the generated password
+  if (useChar) {
+    passArray.push(char)
+  }
+  if (useCAPS) {
+    passArray.push(charCAPS)
+  }
+  if (useNum) {
+    passArray.push(numbers)
+  }
+  if (useSpec) {
+    passArray.push(specials)
+  }
   // loops generatePassword for however long the password is 
   for (let i = 0; i < passwordLength; i++) {
     // this says give me a value between zero and three, or zero and however many options we are using
