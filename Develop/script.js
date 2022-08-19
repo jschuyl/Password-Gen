@@ -18,11 +18,15 @@ var useSpec = true;
 
 function generatePassword() {
   let newPass = "";
-  
+  // these "picky" series let you change things in the code
   let pickyLength = prompt("How many characters 8-128?");
   if (pickyLength != null) {
-    passwordLength = pickyLength
-  }
+    if (pickyLength < 8) {
+      newPass = "too few characters"
+    } if (pickyLength > 128) {
+      newPass = "too many characters"
+    } else passwordLength = pickyLength
+  } 
 
   let pickyChar = prompt("Lowercase letters y/n?");
   if (pickyChar != null) {
