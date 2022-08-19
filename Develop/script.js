@@ -18,16 +18,9 @@ var useSpec = true;
 
 function generatePassword() {
   let newPass = "";
-  // these "picky" series let you change things in the code
+  // these "picky" series let you change things in the code through prompts
   let pickyLength = prompt("How many characters 8-128?");
-  if (pickyLength != null) {
-    if (pickyLength < 8) {
-      newPass = "too few characters"
-    } if (pickyLength > 128) {
-      newPass = "too many characters"
-    } else passwordLength = pickyLength
-  } 
-
+ 
   let pickyChar = prompt("Lowercase letters y/n?");
   if (pickyChar != null) {
     if (pickyChar === "y") {
@@ -77,6 +70,7 @@ function generatePassword() {
     passArray.push(specials)
   }
   // loops generatePassword for however long the password is 
+  if (pickyLength >= 8 && pickyLength <= 128) {
   for (let i = 0; i < passwordLength; i++) {
     // this says give me a value between zero and three, or zero and however many options we are using
       var arrayNumber = Math.floor(Math.random() * passArray.length);
@@ -86,7 +80,14 @@ function generatePassword() {
       var password = Math.floor(Math.random() * whatOptions.length + 1);
       // displays the random value chosen in passArray until the loop finishes
       newPass = newPass + whatOptions.charAt(password); // can also be written as newPass += whatOptions (cont.)
-  }
+  }} else {
+   if (pickyLength != null) {
+    if (pickyLength < 8) {
+      newPass = "too few characters"
+    } if (pickyLength > 128) {
+      newPass = "too many characters"
+    } else passwordLength = pickyLength
+  }}
   return newPass;
 }
 
