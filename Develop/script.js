@@ -8,15 +8,58 @@ var numbers = "1234567890"
 var specials = "!@#$%^&*()_+,.<>/? "
 var passwordLength = 128; // only works with an int here, for now
 var passArray = [char, charCAPS, numbers, specials];
+console.log(passArray)
 // check for user wants
 var useChar = true;
 var useCAPS = true;
 var useNum = true;
 var useSpec = true;
 
+
 function generatePassword() {
   let newPass = "";
-  // these check the booleans to see what can be used for the generated password
+  
+  let pickyLength = prompt("How many characters 8-128?");
+  if (pickyLength != null) {
+    passwordLength = pickyLength
+  }
+
+  let pickyChar = prompt("Lowercase letters y/n?");
+  if (pickyChar != null) {
+    if (pickyChar === "y") {
+      useChar = true
+    } if (pickyChar === "n"){
+      useChar = false
+    } 
+  }
+
+  let pickyCAPS = prompt("Uppercase letters y/n?");
+  if (pickyCAPS != null) {
+    if (pickyCAPS === "y") {
+      useCAPS = true
+    } if (pickyCAPS === "n"){
+      useCAPS = false
+    }
+  }
+
+  let pickyNum = prompt("Numbers y/n?");
+  if (pickyNum != null) {
+    if (pickyNum === "y") {
+      useNum = true
+    } if (pickyNum === "n"){
+      useNum = false
+    }
+  }
+
+  let pickySpec = prompt("special characters !@#$%^&*( )_+,.<>/? y/n?");
+  if (pickySpec != null) {
+    if (pickySpec === "y") {
+      useSpec = true
+    } if (pickySpec === "n"){
+      useSpec = false
+    }
+  }
+  // these check the booleans to see what can be used for the generated password, pushes option to array if true
   if (useChar) {
     passArray.push(char)
   }
@@ -42,6 +85,7 @@ function generatePassword() {
   }
   return newPass;
 }
+
 console.log(password)
 // Write password to the #password input
 function writePassword() {
