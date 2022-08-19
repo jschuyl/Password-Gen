@@ -6,9 +6,13 @@ var char = "abcdefghijklmnopqrstuvwxyz"
 var charCAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numbers = "1234567890"
 var specials = "!@#$%^&*()_+,.<>/? "
-var passwordLength = "";
+var passwordLength = 128; // only works with an int here, for now
 var passArray = [char, charCAPS, numbers, specials];
-
+// check for user wants
+var useChar = false;
+var useCAPS = false;
+var useNum = false;
+var useSpec = false;
 
 function generatePassword() {
   let newPass = "";
@@ -21,7 +25,7 @@ function generatePassword() {
       // creates a random number that falls on the array, plus one to get to 26 if necessary
       var password = Math.floor(Math.random() * whatOptions.length + 1);
       // displays the random value chosen in passArray until the loop finishes
-      newPass = newPass + char.charAt(password);
+      newPass = newPass + whatOptions.charAt(password); // can also be written as newPass += whatOptions (cont.)
   }
   return newPass;
 }
