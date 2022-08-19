@@ -5,15 +5,18 @@ var generateBtn = document.querySelector("#generate");
 var char = "abcdefghijklmnopqrstuvwxyz"
 var charCAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numbers = "1234567890"
-var specials = "!@#$%^&*()_+,.<>/?"
+var specials = "!@#$%^&*()_+,.<>/? "
 var passwordLength = "";
-var password = "";
+var passArray = [char, charCAPS, numbers, specials];
+
 
 function generatePassword() {
-  for (let i = 1; i <= 10; i++) {
+  let newPass = ""
+  for (let i = 0; i < passwordLength; i++) {
      var password = Math.floor(Math.random()*char.passwordLength + 1);
-      password += char.charAt(password)
+      newPass += char.charAt(password)
   }
+  return newPass
 }
 console.log(password)
 // Write password to the #password input
