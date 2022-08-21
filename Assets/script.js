@@ -80,14 +80,16 @@ function generatePassword() {
       var password = Math.floor(Math.random() * whatOptions.length + 1);
       // displays the random value chosen in passArray until the loop finishes
       newPass = newPass + whatOptions.charAt(password); // can also be written as newPass += whatOptions (cont.)
-  }} else {
+  }
+} else {
    if (pickyLength != null) {
     if (pickyLength < 8) {
       newPass = "too few characters"
     } if (pickyLength > 128) {
       newPass = "too many characters"
     } else passwordLength = pickyLength
-  }}
+  }
+}
   return newPass;
 }
 
