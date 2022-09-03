@@ -13,7 +13,7 @@ console.log(passArray)
 function generatePassword() {
   let newPass = ""
 
-  let pickyLength = prompt("How many character/s 8-128?")
+  let pickyLength = prompt("How many characters 8-128?")
   let useChar = confirm("Use lowercase letters?")
   let useCaps = confirm("Use capital letters?")
   let useNum = confirm("Use Numbers?")
@@ -42,27 +42,19 @@ function generatePassword() {
     for (i = 0; i < pickyLength; i++) {
       // this says give me a value between zero and three, or zero and however many options we are using
       var arrayNumber = Math.floor(Math.random() * passArray.length);
-      // applies which options we chose
+      // randomly chooses which array object we use
       var whatOptions = passArray[arrayNumber];
-      // creates a random number that falls on the array, plus one to get to 26 if necessary
+      // chooses random value from object length
       var password = Math.floor(Math.random() * whatOptions.length);
-      // displays the random value chosen in passArray until the loop finishes
+      // adds character chosen to the previous character until loop ends
       newPass = newPass + whatOptions.charAt(password); // can also be written as newPass += whatOptions (cont.)
       }
       console.log(newPass)
       console.log(newPass.length)
     } 
+    let passwordText = document.querySelector("#password");
+    passwordText.value = newPass
   }
 
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
- 
-  passwordText.value = password;
-
-}
-
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
