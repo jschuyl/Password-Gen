@@ -2,16 +2,15 @@
 console.log(this)
 var generateBtn = document.querySelector("#generate");
 // characters that are available to use
-var char = "abcdefghijklmnopqrstuvwxyz"
-var charCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var numbers = "1234567890"
-var specials = "!@#$%^&*()_+,.<>/? "
+var char = "abcdefghijklmnopqrstuvwxyz";
+var charCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numbers = "1234567890";
+var specials = "!@#$%^&*()_+,.<>/? ";
 var passArray = [];
-console.log(passArray)
-// check for user wants
-
+// where the magic happens
 function generatePassword() {
-  let newPass = ""
+  let passArray = [];
+  let newPass = "";
 // lets user pick length of password, also stops function if user uses less or more than they're allowed to
   let pickyLength = prompt("How many characters 8-128?")
   if(pickyLength < 8) {
@@ -59,3 +58,4 @@ function generatePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
+
